@@ -1,6 +1,6 @@
 package fr.uha.ensisa.opensys.sample.dictionary.commands;
 
-import fr.uha.ensisa.opensys.commands.ICommand;
+import fr.uha.ensisa.opensys.core.ICommand;
 import fr.uha.ensisa.opensys.core.IProcessor;
 import fr.uha.ensisa.opensys.sample.dictionary.core.Dictionary;
 

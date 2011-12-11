@@ -1,6 +1,6 @@
 package fr.uha.ensisa.opensys.classloader;
 
-import fr.uha.ensisa.opensys.commands.ICommand;
+import fr.uha.ensisa.opensys.core.ICommand;
 
 /**
  * Provide methods to load ICommands from external jar files
