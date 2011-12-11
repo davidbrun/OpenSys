@@ -12,9 +12,9 @@ public class Element<T> {
 		next = null;
 	}
 	
-	public void AddBack(Element<T> element) {
+	public void addBack(Element<T> element) {
 		if(next != null)
-			next.AddBack(element);
+			next.addBack(element);
 		next = element;
 	}
 	
