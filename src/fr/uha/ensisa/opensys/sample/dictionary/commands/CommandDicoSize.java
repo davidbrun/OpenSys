@@ -5,32 +5,24 @@ import fr.uha.ensisa.opensys.core.Processor;
 import fr.uha.ensisa.opensys.core.System;
 import fr.uha.ensisa.opensys.sample.dictionary.core.Dictionary;
 
-public class CommandRemove implements ICommand {
-
+public class CommandDicoSize implements ICommand {
+	
 	@Override
 	public String getName() {
-		return "Remove";
+		return "DicoSize";
 	}
 	
 	@Override
 	public Class<? extends System> getTarget() {
 		return Dictionary.class;
 	}
-	
+
 	@Override
 	public void execute(Processor processor) {
 		Dictionary dictionary = (Dictionary) processor.getSystem(getTarget().getSimpleName());
 		if (dictionary != null)
 		{
-			processor.getOutput().printLine("Entrez le mot a retirer :");
-			String word = processor.getInput().getLine();
-			if (dictionary.contains(word))
-			{
-				dictionary.remove(word);
-				processor.getOutput().printLine("Retrait OK");
-			}
-			else
-				processor.getOutput().printLine("Le mot " + word + " n'est pas dans le dictionnaire.");
+			processor.getOutput().printLine("Nombre d'entrees du dictionnaire : " + dictionary.getSize());
 		}	
 	}
 }

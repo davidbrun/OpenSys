@@ -38,6 +38,10 @@ public class Dictionary extends System {
 		dico.remove(word);
 	}
 	
+	public boolean contains(String word) {
+		return dico.containsKey(word);
+	}
+	
 	public int getSize() {
 		return dico.size();
 	}
