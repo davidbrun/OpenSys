@@ -5,9 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import fr.uha.ensisa.opensys.core.Input;
+import fr.uha.ensisa.opensys.core.OpenSys;
 
 public class StdInput extends Input {
 
+	static {
+		OpenSys.addInput(StdInput.class.getName().toLowerCase(), StdInput.class);
+	}
+	
 	private BufferedReader in;
 
 	public StdInput() {

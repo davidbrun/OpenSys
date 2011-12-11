@@ -11,7 +11,7 @@ import fr.uha.ensisa.opensys.core.OpenSys;
 public class FileInput extends Input {
 	
 	static {
-		OpenSys.addInput("fileinput", FileInput.class);
+		OpenSys.addInput(FileInput.class.getName().toLowerCase(), FileInput.class);
 	}
 
 	private BufferedReader in;

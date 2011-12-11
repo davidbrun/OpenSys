@@ -10,7 +10,7 @@ import fr.uha.ensisa.opensys.core.Output;
 public class FileOutput extends Output {
 
 	static {
-		OpenSys.addOutput("fileoutput", FileOutput.class);
+		OpenSys.addOutput(FileOutput.class.getName().toLowerCase(), FileOutput.class);
 	}
 	
 	private PrintWriter out;
