@@ -31,6 +31,10 @@ public abstract class Processor extends Element<Processor> {
 	public void setSystem(System system) {
 		this.system = system;
 	}
+	
+	public OpenSys getOpenSys() {
+		return openSys;
+	}
 
 	public void addCommand(ICommand command) {
 		this.mapCommands.put(command.getName().toLowerCase(), command);
