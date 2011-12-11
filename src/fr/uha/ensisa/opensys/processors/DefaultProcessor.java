@@ -19,6 +19,7 @@ public class DefaultProcessor extends Processor {
 		this.addCommand(new CommandLoad());
 		this.addCommand(new CommandUnload());
 		this.addCommand(new CommandHelp());
+		this.addCommand(new CommandAbout());
 	}
 	
 
