@@ -15,7 +15,8 @@ public class CommandTranslate implements ICommand {
 		Dictionary dictionary = (Dictionary) processor.getSystem();
 		if (dictionary != null)
 		{
-			processor.getOutput().printLine(dictionary.translate(processor.getInput().getLine()));
+			processor.getOutput().printLine("Entrez le texte à traduire : ");
+			processor.getOutput().printLine("Traduction : " + dictionary.translate(processor.getInput().getLine()));
 		}
 	}
 }
