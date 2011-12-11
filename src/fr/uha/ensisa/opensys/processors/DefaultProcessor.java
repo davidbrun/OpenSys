@@ -1,8 +1,6 @@
 package fr.uha.ensisa.opensys.processors;
 
-import fr.uha.ensisa.opensys.commands.CommandLoad;
-import fr.uha.ensisa.opensys.commands.CommandLoadJar;
-import fr.uha.ensisa.opensys.commands.CommandUnload;
+import fr.uha.ensisa.opensys.commands.*;
 import fr.uha.ensisa.opensys.core.OpenSys;
 import fr.uha.ensisa.opensys.core.Processor;
 
@@ -23,6 +21,11 @@ public class DefaultProcessor extends Processor {
 		this.addCommand(new CommandHelp());
 		this.addCommand(new CommandAbout());
 		this.addCommand(new CommandLoadJar());
+		this.addCommand(new CommandLoadProcessor());
+		this.addCommand(new CommandLoadInput());
+		this.addCommand(new CommandLoadOutput());
+		this.addCommand(new CommandLoadSystem());
+		this.addCommand(new CommandLoadProcessor());
 	}
 	
 
