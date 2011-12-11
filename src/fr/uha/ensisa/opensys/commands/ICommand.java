@@ -1,5 +1,7 @@
 package fr.uha.ensisa.opensys.commands;
 
-public interface ICommand {
+import fr.uha.ensisa.opensys.core.IProcessor;
 
+public interface ICommand {
+	public void execute(IProcessor processor);
 }
