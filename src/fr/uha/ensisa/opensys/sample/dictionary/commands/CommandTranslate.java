@@ -10,7 +10,7 @@ public class CommandTranslate implements ICommand {
 		Dictionary dictionary = (Dictionary) processor.getSystem();
 		if (dictionary != null)
 		{
-			dictionary.translate(processor.getInput().GetLine());
+			processor.getOutput().printLine(dictionary.translate(processor.getInput().getLine()));
 		}
 	}
 }
