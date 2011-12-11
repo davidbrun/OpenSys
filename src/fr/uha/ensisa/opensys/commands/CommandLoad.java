@@ -11,7 +11,6 @@ public class CommandLoad implements ICommand {
 	
 	@Override
 	public void execute(Processor processor) {
-		// TODO Auto-generated method stub
-		
+//		processor.addCommand();
 	}
 }

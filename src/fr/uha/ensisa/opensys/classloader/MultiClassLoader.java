@@ -7,7 +7,7 @@ import java.util.HashMap;
  */
 public abstract class MultiClassLoader extends ClassLoader
 {
-    private HashMap classes = new HashMap();
+    protected HashMap classes = new HashMap();
     private char classNameReplacementChar;
     
     public MultiClassLoader()
