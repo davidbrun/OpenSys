@@ -10,7 +10,7 @@ import fr.uha.ensisa.opensys.core.OpenSys;
 public class LoggerInput extends Input {
 
 	static {
-		OpenSys.addInput(LoggerInput.class.getName().toLowerCase(), LoggerInput.class);
+		OpenSys.addInput(LoggerInput.class.getSimpleName().toLowerCase(), LoggerInput.class);
 	}
 	
 	private PrintWriter out;

@@ -6,7 +6,7 @@ import fr.uha.ensisa.opensys.core.Output;
 public class StdOutput extends Output {
 
 	static {
-		OpenSys.addOutput(StdOutput.class.getName().toLowerCase(), StdOutput.class);
+		OpenSys.addOutput(StdOutput.class.getSimpleName().toLowerCase(), StdOutput.class);
 	}
 	
 	@Override

@@ -10,7 +10,7 @@ import fr.uha.ensisa.opensys.core.OpenSys;
 public class StdInput extends Input {
 
 	static {
-		OpenSys.addInput(StdInput.class.getName().toLowerCase(), StdInput.class);
+		OpenSys.addInput(StdInput.class.getSimpleName().toLowerCase(), StdInput.class);
 	}
 	
 	private BufferedReader in;

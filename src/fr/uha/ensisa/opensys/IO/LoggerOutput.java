@@ -10,7 +10,7 @@ import fr.uha.ensisa.opensys.core.Output;
 public class LoggerOutput extends Output {
 
 	static {
-		OpenSys.addOutput(LoggerOutput.class.getName().toLowerCase(), LoggerOutput.class);
+		OpenSys.addOutput(LoggerOutput.class.getSimpleName().toLowerCase(), LoggerOutput.class);
 	}
 	
 	private PrintWriter out;
