@@ -1,7 +1,10 @@
 package fr.uha.ensisa.opensys.sample.dictionary.core;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
+
 import fr.uha.ensisa.opensys.core.System;
 
 public class Dictionary extends System {
@@ -37,5 +40,16 @@ public class Dictionary extends System {
 	
 	public int getSize() {
 		return dico.size();
+	}
+	
+	public String toString() {
+		String s = "Dictionnaire:\n";
+		
+		Iterator<Map.Entry<String, String>> it = dico.entrySet().iterator();
+		while(it.hasNext()) {
+			Entry<String, String> entry = it.next();
+			s += entry.getKey() + " --> " + entry.getValue() + "\n";
+		}
+		return s;
 	}
 }
