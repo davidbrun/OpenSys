@@ -3,8 +3,8 @@ package fr.uha.ensisa.opensys.core;
 
 public abstract class Input extends Element<Input> {
 	
-	public abstract String GetLine();
+	public abstract String getLine();
 	
-	public abstract char GetChar();
+	public abstract char getChar();
 	
 }
