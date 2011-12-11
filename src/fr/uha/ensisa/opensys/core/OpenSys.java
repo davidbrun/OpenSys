@@ -1,17 +1,24 @@
 package fr.uha.ensisa.opensys.core;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import fr.uha.ensisa.opensys.IO.StdInput;
 import fr.uha.ensisa.opensys.IO.StdOutput;
 import fr.uha.ensisa.opensys.processors.DefaultProcessor;
 
 public class OpenSys {	
-	private static HashMap<String, Class<? extends Input>> inputs;
-	private static HashMap<String, Class<? extends Output>> outputs;
-	private static HashMap<String, Class<? extends Processor>> processors;
-	private static HashMap<String, Class<? extends System>> systems;
+	private static Map<String, Class<? extends Input>> inputs;
+	private static Map<String, Class<? extends Output>> outputs;
+	private static Map<String, Class<? extends Processor>> processors;
+	private static Map<String, Class<? extends System>> systems;
 	
+	static {
+		inputs = new HashMap<String, Class<? extends Input>>();
+		outputs = new HashMap<String, Class<? extends Output>>();
+		processors = new HashMap<String, Class<? extends Processor>>();
+		systems = new HashMap<String, Class<? extends System>>();
+	}
 
 	public static <T> void addInput(String name, Class<? extends Input> s) {
 		inputs.put(name, s);
