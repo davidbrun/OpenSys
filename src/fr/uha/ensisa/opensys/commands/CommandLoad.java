@@ -1,7 +1,7 @@
 package fr.uha.ensisa.opensys.commands;
 
 import fr.uha.ensisa.opensys.core.ICommand;
-import fr.uha.ensisa.opensys.core.IProcessor;
+import fr.uha.ensisa.opensys.core.Processor;
 
 public class CommandLoad implements ICommand {
 	@Override
@@ -10,7 +10,7 @@ public class CommandLoad implements ICommand {
 	}
 	
 	@Override
-	public void execute(IProcessor processor) {
+	public void execute(Processor processor) {
 		// TODO Auto-generated method stub
 		
 	}

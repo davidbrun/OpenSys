@@ -7,7 +7,7 @@ import fr.uha.ensisa.opensys.processors.DefaultProcessor;
 public class OpenSys {
 	private Input input;
 	private Output output;
-	private IProcessor processor;
+	private Processor processor;
 	
 	public OpenSys() {
 		this.input = new StdInput();
@@ -15,7 +15,7 @@ public class OpenSys {
 		this.processor = new DefaultProcessor(this);
 	}
 	
-	public OpenSys(Input input, Output output, IProcessor processor) {
+	public OpenSys(Input input, Output output, Processor processor) {
 		this.input = input;
 		this.output = output;
 		this.processor = processor;
@@ -37,11 +37,11 @@ public class OpenSys {
 		this.output = output;
 	}
 	
-	public IProcessor getProcessor() {
+	public Processor getProcessor() {
 		return processor;
 	}
 	
-	public void setProcessor(IProcessor processor) {
+	public void setProcessor(Processor processor) {
 		this.processor = processor;
 	}
 	

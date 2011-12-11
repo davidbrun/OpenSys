@@ -13,7 +13,7 @@ import fr.uha.ensisa.opensys.core.Processor;
 public class DefaultProcessor extends Processor {
 	private OpenSys openSys;
 	private Map<String, ICommand> mapCommands;
-	private System system;
+	private fr.uha.ensisa.opensys.core.System system;
 	
 	public DefaultProcessor(OpenSys openSys) {
 		this.openSys = openSys;
@@ -28,8 +28,9 @@ public class DefaultProcessor extends Processor {
 		ICommand commandUnload = new CommandUnload();
 		this.mapCommands.put(commandUnload.getName(), commandUnload);
 	}
+	
 	@Override
-	public System getSystem() {
+	public fr.uha.ensisa.opensys.core.System getSystem() {
 		return this.system;
 	}
 
