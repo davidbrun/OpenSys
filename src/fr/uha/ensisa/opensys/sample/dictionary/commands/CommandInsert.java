@@ -15,8 +15,9 @@ public class CommandInsert implements ICommand {
 		Dictionary dictionary = (Dictionary) processor.getSystem();
 		if (dictionary != null)
 		{
-			processor.getOutput().printLine("Entrez les 2 mots à insérer, séparés par un \"entré\" : ");
+			processor.getOutput().printLine("Entrez le mot a traduire:");
 			String word1 = processor.getInput().getLine();
+			processor.getOutput().printLine("Entrez la traduction:");
 			String word2 = processor.getInput().getLine();
 			dictionary.insert(word1, word2);
 			processor.getOutput().printLine("Ajout OK");
