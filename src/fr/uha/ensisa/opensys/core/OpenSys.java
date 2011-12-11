@@ -68,6 +68,50 @@ public class OpenSys {
 		this.output = output;
 	}
 	
+	public Input newInput(String name) {
+		Input input = null;
+		Class<? extends Input> c = inputs.get(name);
+		try {
+			input = c.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return input;
+	}
+	
+	public Output newOutput(String name) {
+		Output output = null;
+		Class<? extends Output> c = outputs.get(name);
+		try {
+			output = c.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return output;
+	}
+	
+	public System newSystem(String name) {
+		System system = null;
+		Class<? extends System> c = systems.get(name);
+		try {
+			system = c.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return system;
+	}
+	
+	public Processor newProcessor(String name) {
+		Processor processor = null;
+		Class<? extends Processor> c = processors.get(name);
+		try {
+			processor = c.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return processor;
+	}
+	
 	public Processor getProcessor() {
 		return processor;
 	}
