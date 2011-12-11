@@ -1,11 +1,11 @@
 package fr.uha.ensisa.opensys.processors;
 
-import fr.uha.ensisa.opensys.core.IProcessor;
+import fr.uha.ensisa.opensys.core.Processor;
 import fr.uha.ensisa.opensys.core.Input;
 import fr.uha.ensisa.opensys.core.Output;
 import fr.uha.ensisa.opensys.core.System;
 
-public class DefaultProcessor implements IProcessor {
+public class DefaultProcessor extends Processor {
 
 	@Override
 	public System getSystem() {
