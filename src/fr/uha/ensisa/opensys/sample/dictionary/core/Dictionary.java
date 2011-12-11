@@ -24,7 +24,7 @@ public class Dictionary extends System {
 		if (dico.containsKey(word))
 			return dico.get(word);
 		else
-			return null;
+			return "Le mot " + word + " n'est pas present dans le dictionnaire.";
 	}
 	
 	public void insert(String wordLanguage1, String wordLanguage2) {

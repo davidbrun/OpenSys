@@ -3,9 +3,10 @@ package fr.uha.ensisa.opensys.core;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 public abstract class Processor extends Element<Processor> {
-	
+	private static final String EXIT_COMMAND = "quit";
 	private fr.uha.ensisa.opensys.core.System system;
 	protected Map<String, ICommand> mapCommands;
 	protected OpenSys openSys;
@@ -36,15 +37,17 @@ public abstract class Processor extends Element<Processor> {
 	}
 
 	public Set<String> getCommands() {
-		return this.mapCommands.keySet();
+		Set<String> result = new TreeSet<String>();
+		result.addAll(this.mapCommands.keySet());
+		result.add(EXIT_COMMAND);
+		return result;
 	}
 
 	public void run() {
-		String EXIT_COMMAND = "quit";
 		String line = "";
 		while (!line.equals(EXIT_COMMAND))
 		{
-			line = getInput().getLine().toLowerCase();
+			line = getInput().getLine().toLowerCase().trim();
 			if (this.mapCommands.containsKey(line))
 				this.mapCommands.get(line).execute(this);
 			else

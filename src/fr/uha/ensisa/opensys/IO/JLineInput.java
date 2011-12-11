@@ -9,6 +9,7 @@ import fr.uha.ensisa.opensys.core.Input;
 import fr.uha.ensisa.opensys.core.OpenSys;
 
 public class JLineInput extends Input {
+	private static final String PROMPT = "-->";
 	private static final String[] EMPTY_STRING_ARRAY = new String[0];
 	private ConsoleReader in;
 	
@@ -28,7 +29,7 @@ public class JLineInput extends Input {
 	public String getLine() {
 		String line = null;
 		try {
-			line = in.readLine("");
+			line = in.readLine(PROMPT);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
