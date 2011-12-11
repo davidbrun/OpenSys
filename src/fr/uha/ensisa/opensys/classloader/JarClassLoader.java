@@ -1,5 +1,7 @@
 package fr.uha.ensisa.opensys.classloader;
 
+import java.util.Set;
+
 /**
  * Provide methods to load classes from external jar files
  */
@@ -20,5 +22,10 @@ public class JarClassLoader extends MultiClassLoader
         className = formatClassName(className);
         // Attempt to get the class data from the JarResource
         return (jarResources.getResource(className));
+    }
+    
+    public Set<String> getClasseNamesFromJar()
+    {
+    	return jarResources.getClasseNamesFromJar();
     }
 }

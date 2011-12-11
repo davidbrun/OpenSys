@@ -19,30 +19,28 @@ public class CommandFactory
      * @param jarFileName The name of the jar file
      * @return The main ICommand from the specified jar file
      */
-    public static List<ICommand> getCommandsFromJarFile(String jarFileName)
+    @SuppressWarnings("rawtypes")
+	public static List<ICommand> getCommandsFromJarFile(String jarFileName)
     {
         // Create a jar class loader to extract the command class
         JarClassLoader jarLoader = new JarClassLoader(jarFileName);
         ArrayList<ICommand> result = new ArrayList<ICommand>();
         
-        try
+        // Load the command class from the jar file and resolve it
+        for (String key : jarLoader.getClasseNamesFromJar())
         {
-            // Load the command class from the jar file and resolve it
-            for (Object key : jarLoader.classes.keySet())
+        	Class c = null;
+        	try
             {
-            	@SuppressWarnings("rawtypes")
-    			Class c = jarLoader.loadClass(key.toString(), true);
-            	
-            	// Create an instance of the class
+    			c = jarLoader.loadClass(key.substring(0, key.length() - ".class".length()), true);
+    			// Create an instance of the class
                 Object o = c.newInstance();
                 if (o instanceof ICommand)
                     result.add((ICommand) o);
             }
-            return result;
+            catch (Exception e)
+            { }
         }
-        catch (Exception e)
-        {
-            return null;
-        }
+        return result;
     }
 }

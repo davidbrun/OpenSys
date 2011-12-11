@@ -11,8 +11,10 @@ import java.util.zip.*;
 public final class JarResources
 {
     // Mapping tables
-    private HashMap mapSizes = new HashMap();
-    private HashMap mapJarContents = new HashMap();
+    @SuppressWarnings("rawtypes")
+	private HashMap mapSizes = new HashMap();
+    @SuppressWarnings("rawtypes")
+	private HashMap mapJarContents = new HashMap();
     // A jar file
     private String jarFileName;
     
@@ -24,6 +26,17 @@ public final class JarResources
     {
         this.jarFileName = jarFileName;
         init();
+    }
+    
+    
+    public Set<String> getClasseNamesFromJar()
+    {
+    	Set<String> result = new TreeSet<String>();
+    	
+    	for (Object o : mapJarContents.keySet())
+    		result.add(o.toString().replaceAll("/", "."));
+    		
+    	return result;
     }
     
     /**
@@ -39,7 +52,8 @@ public final class JarResources
     /**
      * Initializes internal hashmaps with jar or zip file resources
      */
-    private void init()
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	private void init()
     {
         try
         {

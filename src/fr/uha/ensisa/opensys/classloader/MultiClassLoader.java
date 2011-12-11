@@ -7,19 +7,22 @@ import java.util.HashMap;
  */
 public abstract class MultiClassLoader extends ClassLoader
 {
-    protected HashMap classes = new HashMap();
+    @SuppressWarnings("rawtypes")
+	private HashMap classes = new HashMap();
     private char classNameReplacementChar;
     
     public MultiClassLoader()
     { }
     
-    @Override
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
     public Class loadClass(String className) throws ClassNotFoundException
     {
         return (loadClass(className, true));
     }
 
-    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
     public synchronized Class loadClass(String className, boolean resolveIt) throws ClassNotFoundException
     {
         Class result;
