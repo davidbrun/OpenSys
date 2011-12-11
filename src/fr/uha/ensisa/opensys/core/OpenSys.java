@@ -1,9 +1,51 @@
 package fr.uha.ensisa.opensys.core;
 
 public class OpenSys {
+	private Input input;
+	private Output output;
+	private IProcessor processor;
+	
+	public OpenSys() {
+		
+	}
+	
+	public OpenSys(Input input, Output output, IProcessor processor) {
+		this.input = input;
+		this.output = output;
+		this.processor = processor;
+	}
+
+	public Input getInput() {
+		return input;
+	}
+	
+	public void setInput(Input input) {
+		this.input = input;
+	}
+	
+	public Output getOutput() {
+		return output;
+	}
+	
+	public void setOutput(Output output) {
+		this.output = output;
+	}
+	
+	public IProcessor getProcessor() {
+		return processor;
+	}
+	
+	public void setProcessor(IProcessor processor) {
+		this.processor = processor;
+	}
+	
+	public void run() {
+		
+	}
 	
 	public static void main(String args[])
 	{
-		
+		OpenSys openSys = new OpenSys();
+		openSys.run();
 	}
 }
