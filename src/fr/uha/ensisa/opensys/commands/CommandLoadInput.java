@@ -3,9 +3,20 @@ package fr.uha.ensisa.opensys.commands;
 import fr.uha.ensisa.opensys.core.ICommand;
 import fr.uha.ensisa.opensys.core.OpenSys;
 import fr.uha.ensisa.opensys.core.Processor;
+import fr.uha.ensisa.opensys.core.System;
 
 public class CommandLoadInput implements ICommand {
-
+	
+	@Override
+	public String getName() {
+		return "LoadInput";
+	}
+	
+	@Override
+	public Class<? extends System> getTarget() {
+		return System.class;
+	}
+	
 	@Override
 	public void execute(Processor processor) {
 		OpenSys sys = processor.getOpenSys();
@@ -17,10 +28,4 @@ public class CommandLoadInput implements ICommand {
 		else
 			sys.setInput(s);
 	}
-
-	@Override
-	public String getName() {
-		return "LoadInput";
-	}
-
 }

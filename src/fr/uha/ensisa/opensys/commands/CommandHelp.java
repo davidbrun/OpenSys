@@ -4,9 +4,20 @@ import java.util.Iterator;
 
 import fr.uha.ensisa.opensys.core.ICommand;
 import fr.uha.ensisa.opensys.core.Processor;
+import fr.uha.ensisa.opensys.core.System;
 
 public class CommandHelp implements ICommand {
-
+	
+	@Override
+	public String getName() {
+		return "Help";
+	}
+	
+	@Override
+	public Class<? extends System> getTarget() {
+		return System.class;
+	}
+	
 	@Override
 	public void execute(Processor processor) {
 		String s = "Commandes disponibles:\n";
@@ -20,10 +31,4 @@ public class CommandHelp implements ICommand {
 		}
 		processor.getOutput().printLine(s);
 	}
-
-	@Override
-	public String getName() {
-		return "Help";
-	}
-
 }

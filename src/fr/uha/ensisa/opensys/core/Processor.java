@@ -7,17 +7,21 @@ import java.util.TreeSet;
 
 public abstract class Processor extends Element<Processor> {
 	private static final String EXIT_COMMAND = "quit";
-	private fr.uha.ensisa.opensys.core.System system;
+	private Map<String,fr.uha.ensisa.opensys.core.System> mapSystems;
 	protected Map<String, ICommand> mapCommands;
 	protected OpenSys openSys;
 	
 	public Processor(OpenSys openSys) {
 		this.openSys = openSys;
 		this.mapCommands = new HashMap<String, ICommand>();
+		this.mapSystems = new HashMap<String, System>();
 	}
 
-	public fr.uha.ensisa.opensys.core.System getSystem() {
-		return this.system;
+	public fr.uha.ensisa.opensys.core.System getSystem(String systemName) {
+		if (mapSystems.containsKey(systemName))
+			return mapSystems.get(systemName);
+		else
+			return null;
 	}
 
 	public Input getInput() {
@@ -28,8 +32,8 @@ public abstract class Processor extends Element<Processor> {
 		return this.openSys.getOutput();
 	}
 
-	public void setSystem(System system) {
-		this.system = system;
+	public void addSystem(System system) {
+		this.mapSystems.put(system.getClass().getSimpleName(), system);
 	}
 	
 	public OpenSys getOpenSys() {
