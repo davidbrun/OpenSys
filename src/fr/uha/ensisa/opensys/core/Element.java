@@ -1,15 +1,14 @@
 package fr.uha.ensisa.opensys.core;
 
 public class Element<T> {
-	private String name = null;
-	private Element<T> next;
-
+	protected Element<T> next;
+	
 	public Element() {
 		next = null;
 	}
 	
-	public Element(T next) {
-		next = null;
+	public Element(Element<T> next) {
+		this.next = next;
 	}
 	
 	public void addBack(Element<T> element) {
@@ -17,12 +16,5 @@ public class Element<T> {
 			next.addBack(element);
 		next = element;
 	}
-	
-	public String getName() {
-		return name;
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
 }

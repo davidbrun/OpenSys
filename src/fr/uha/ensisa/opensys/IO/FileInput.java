@@ -6,8 +6,13 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import fr.uha.ensisa.opensys.core.Input;
+import fr.uha.ensisa.opensys.core.OpenSys;
 
 public class FileInput extends Input {
+	
+	static {
+		OpenSys.addInput("fileinput", FileInput.class);
+	}
 
 	private BufferedReader in;
 	
