@@ -8,9 +8,14 @@ import fr.uha.ensisa.opensys.core.Input;
 
 public class StdInput extends Input {
 
+	private BufferedReader in;
+
+	public StdInput() {
+		in = new BufferedReader(new InputStreamReader(System.in));
+	}
+
 	@Override
 	public int getChar() {
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		int i = -1;
 
 		try {
@@ -24,7 +29,6 @@ public class StdInput extends Input {
 
 	@Override
 	public String getLine() {
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		String s = null;
 
 		try {
