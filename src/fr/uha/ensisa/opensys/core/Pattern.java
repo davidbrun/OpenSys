@@ -1,4 +1,4 @@
-package core;
+package fr.uha.ensisa.opensys.core;
 
 public abstract class Pattern {
 	private Pattern next = null;
