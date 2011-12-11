@@ -1,12 +1,14 @@
 package fr.uha.ensisa.opensys.core;
 
+import fr.uha.ensisa.opensys.IO.StdInput;
+
 public class OpenSys {
 	private Input input;
 	private Output output;
 	private IProcessor processor;
 	
 	public OpenSys() {
-		
+		this.input = new StdInput();
 	}
 	
 	public OpenSys(Input input, Output output, IProcessor processor) {
@@ -40,7 +42,7 @@ public class OpenSys {
 	}
 	
 	public void run() {
-		
+		this.processor.run();
 	}
 	
 	public static void main(String args[])
