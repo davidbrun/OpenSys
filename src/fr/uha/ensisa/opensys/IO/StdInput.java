@@ -18,14 +18,6 @@ public class StdInput extends Input {
 	public StdInput() {
 		in = new BufferedReader(new InputStreamReader(System.in));
 	}
-
-	public void finalize() {
-		try {
-			in.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 	
 	@Override
 	public int getChar() {
