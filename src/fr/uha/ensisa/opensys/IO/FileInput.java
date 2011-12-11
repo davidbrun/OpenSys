@@ -1,19 +1,20 @@
 package fr.uha.ensisa.opensys.IO;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 import fr.uha.ensisa.opensys.core.Input;
 
-public class StdInput extends Input {
+public class FileInput extends Input {
 
 	private BufferedReader in;
-
-	public StdInput() {
-		in = new BufferedReader(new InputStreamReader(System.in));
+	
+	public FileInput(String filename) throws FileNotFoundException {
+		in = new BufferedReader(new FileReader(filename));
 	}
-
+	
 	public void finalize() {
 		try {
 			in.close();
