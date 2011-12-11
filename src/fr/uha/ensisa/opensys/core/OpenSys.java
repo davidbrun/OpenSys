@@ -118,6 +118,7 @@ public class OpenSys {
 	
 	public void setProcessor(Processor processor) {
 		this.processor = processor;
+		this.processor.run();
 	}
 	
 	public void run() {
