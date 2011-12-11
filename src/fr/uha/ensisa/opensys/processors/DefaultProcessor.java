@@ -60,7 +60,7 @@ public class DefaultProcessor extends Processor {
 				if (!line.equals(EXIT_COMMAND))
 					getOutput().printLine("Unknown command: " + line);
 		}
-		getOutput().printLine("Au revoir !");
+		getOutput().printLine("Bye bye!");
 	}
 
 	@Override
