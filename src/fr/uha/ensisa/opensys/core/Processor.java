@@ -2,8 +2,11 @@ package fr.uha.ensisa.opensys.core;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public abstract class Processor extends Element<Processor> {
+	
+	private fr.uha.ensisa.opensys.core.System system;
 	protected Map<String, ICommand> mapCommands;
 	protected OpenSys openSys;
 	
@@ -11,12 +14,31 @@ public abstract class Processor extends Element<Processor> {
 		this.openSys = openSys;
 		this.mapCommands = new HashMap<String, ICommand>();
 	}
-	
-	public abstract void setSystem(fr.uha.ensisa.opensys.core.System system);
-	public abstract fr.uha.ensisa.opensys.core.System getSystem();
-	public abstract Input getInput();
-	public abstract Output getOutput();
-	
+
+	public fr.uha.ensisa.opensys.core.System getSystem() {
+		return this.system;
+	}
+
+	public Input getInput() {
+		return this.openSys.getInput();
+	}
+
+	public Output getOutput() {
+		return this.openSys.getOutput();
+	}
+
+	public void setSystem(System system) {
+		this.system = system;
+	}
+
+	public void addCommand(ICommand command) {
+		this.mapCommands.put(command.getName().toLowerCase(), command);
+	}
+
+	public Set<String> getCommands() {
+		return this.mapCommands.keySet();
+	}
+
 	public void run() {
 		String EXIT_COMMAND = "quit";
 		String line = "";
