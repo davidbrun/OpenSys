@@ -27,6 +27,7 @@ public class LoggerInput extends Input {
 	public int getChar() {
 		int i = ((Input)next).getChar();
 		out.print(i);
+		out.flush();
 		return i;
 	}
 
@@ -34,6 +35,7 @@ public class LoggerInput extends Input {
 	public String getLine() {
 		String s = ((Input)next).getLine();
 		out.println(s);
+		out.flush();
 		return s;
 	}
 

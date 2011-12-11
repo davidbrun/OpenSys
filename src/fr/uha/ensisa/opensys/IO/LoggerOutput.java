@@ -19,19 +19,21 @@ public class LoggerOutput extends Output {
 		out = new PrintWriter(new FileWriter(filename));
 	}
 	
-	public void filnalize() {
+	public void finalize() {
 		out.close();
 	}
 	
 	@Override
 	public void printChar(char c) {
 		out.print(c);
+		out.flush();
 		((Output)next).printChar(c);
 	}
 
 	@Override
 	public void printLine(String s) {
 		out.println(s);
+		out.flush();
 		((Output)next).printLine(s);
 	}
 
