@@ -23,10 +23,10 @@ public class DefaultProcessor extends Processor {
 
 	private void initDefaultProcessor() {
 		ICommand commandLoad = new CommandLoad();
-		this.mapCommands.put(commandLoad.getName(), commandLoad);
+		this.mapCommands.put(commandLoad.getName().toLowerCase(), commandLoad);
 		
 		ICommand commandUnload = new CommandUnload();
-		this.mapCommands.put(commandUnload.getName(), commandUnload);
+		this.mapCommands.put(commandUnload.getName().toLowerCase(), commandUnload);
 	}
 	
 	@Override
@@ -50,7 +50,7 @@ public class DefaultProcessor extends Processor {
 		while (line != "quit")
 		{
 			line = getInput().getLine();
-			this.mapCommands.get(line).execute(this);
+			this.mapCommands.get(line.toLowerCase()).execute(this);
 		}
 	}
 

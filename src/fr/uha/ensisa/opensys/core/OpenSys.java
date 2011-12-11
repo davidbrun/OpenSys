@@ -48,10 +48,4 @@ public class OpenSys {
 	public void run() {
 		this.processor.run();
 	}
-	
-	public static void main(String args[])
-	{
-		OpenSys openSys = new OpenSys();
-		openSys.run();
-	}
 }
