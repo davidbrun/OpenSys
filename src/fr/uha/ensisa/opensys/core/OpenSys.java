@@ -2,6 +2,7 @@ package fr.uha.ensisa.opensys.core;
 
 import fr.uha.ensisa.opensys.IO.StdInput;
 import fr.uha.ensisa.opensys.IO.StdOutput;
+import fr.uha.ensisa.opensys.processors.DefaultProcessor;
 
 public class OpenSys {
 	private Input input;
@@ -11,6 +12,7 @@ public class OpenSys {
 	public OpenSys() {
 		this.input = new StdInput();
 		this.output = new StdOutput();
+		this.processor = new DefaultProcessor(this);
 	}
 	
 	public OpenSys(Input input, Output output, IProcessor processor) {

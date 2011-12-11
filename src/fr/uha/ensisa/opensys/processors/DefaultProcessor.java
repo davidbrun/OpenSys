@@ -1,34 +1,56 @@
 package fr.uha.ensisa.opensys.processors;
 
-import fr.uha.ensisa.opensys.core.Processor;
+import java.util.HashMap;
+import java.util.Map;
+import fr.uha.ensisa.opensys.commands.CommandLoad;
+import fr.uha.ensisa.opensys.commands.CommandUnload;
+import fr.uha.ensisa.opensys.core.ICommand;
 import fr.uha.ensisa.opensys.core.Input;
+import fr.uha.ensisa.opensys.core.OpenSys;
 import fr.uha.ensisa.opensys.core.Output;
-import fr.uha.ensisa.opensys.core.System;
+import fr.uha.ensisa.opensys.core.Processor;
 
 public class DefaultProcessor extends Processor {
+	private OpenSys openSys;
+	private Map<String, ICommand> mapCommands;
+	private System system;
+	
+	public DefaultProcessor(OpenSys openSys) {
+		this.openSys = openSys;
+		this.mapCommands = new HashMap<String, ICommand>();
+		this.initDefaultProcessor();
+	}
 
+	private void initDefaultProcessor() {
+		ICommand commandLoad = new CommandLoad();
+		this.mapCommands.put(commandLoad.getName(), commandLoad);
+		
+		ICommand commandUnload = new CommandUnload();
+		this.mapCommands.put(commandUnload.getName(), commandUnload);
+	}
 	@Override
 	public System getSystem() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.system;
 	}
 
 	@Override
 	public Input getInput() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.openSys.getInput();
 	}
 
 	@Override
 	public Output getOutput() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.openSys.getOutput();
 	}
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-
+		String line = "";
+		while (line != "quit")
+		{
+			line = getInput().getLine();
+			this.mapCommands.get(line).execute(this);
+		}
 	}
 
 }

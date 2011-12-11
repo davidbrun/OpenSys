@@ -6,6 +6,11 @@ import fr.uha.ensisa.opensys.sample.dictionary.core.Dictionary;
 
 public class CommandTranslate implements ICommand {
 	@Override
+	public String getName() {
+		return "Translate";
+	}
+	
+	@Override
 	public void execute(IProcessor processor) {
 		Dictionary dictionary = (Dictionary) processor.getSystem();
 		if (dictionary != null)
