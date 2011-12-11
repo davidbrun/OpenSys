@@ -3,7 +3,11 @@ package fr.uha.ensisa.opensys.processors;
 import fr.uha.ensisa.opensys.commands.CommandAbout;
 import fr.uha.ensisa.opensys.commands.CommandHelp;
 import fr.uha.ensisa.opensys.commands.CommandLoad;
+import fr.uha.ensisa.opensys.commands.CommandLoadInput;
 import fr.uha.ensisa.opensys.commands.CommandLoadJar;
+import fr.uha.ensisa.opensys.commands.CommandLoadOutput;
+import fr.uha.ensisa.opensys.commands.CommandLoadProcessor;
+import fr.uha.ensisa.opensys.commands.CommandLoadSystem;
 import fr.uha.ensisa.opensys.commands.CommandUnload;
 import fr.uha.ensisa.opensys.core.OpenSys;
 import fr.uha.ensisa.opensys.core.Processor;
@@ -31,6 +35,4 @@ public class DefaultProcessor extends Processor {
 		this.addCommand(new CommandLoadSystem());
 		this.addCommand(new CommandLoadProcessor());
 	}
-	
-
 }
