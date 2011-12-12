@@ -26,7 +26,9 @@ public class CommandLoadCommand implements ICommand {
 	@Override
 	public void execute(Processor processor) {
 		try {
-			List<Class> classes = PackageExplorer.getClasses(OpenSys.PACKAGE_COMMANDS);
+			List<Class> classes = PackageExplorer.getClasses(OpenSys.PACKAGE_COMMANDS_CORE);
+			List<Class> classes2 = PackageExplorer.getClasses(OpenSys.PACKAGE_COMMANDS_DICTIONARY);
+			classes.addAll(classes2);
 			
 			Map<String, ICommand> localCommands = new HashMap<String, ICommand>();
 			for (Class c : classes)
