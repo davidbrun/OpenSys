@@ -19,7 +19,7 @@ public class CommandUnloadCommand implements ICommand {
 	@Override
 	public void execute(Processor processor) {
 		processor.getOutput().printLine("Entrez le nom de la commande a decharger : ");
-		String command = processor.getInput().getLine();
+		String command = processor.getInput().getLine().toLowerCase().trim();
 		if (processor.removeCommand(command))
 			processor.getOutput().printLine("Commande OK");
 		else

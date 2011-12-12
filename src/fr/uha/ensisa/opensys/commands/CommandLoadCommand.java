@@ -42,7 +42,7 @@ public class CommandLoadCommand implements ICommand {
 			}
 			
 			processor.getOutput().printLine("Entrez le nom de la commande interne a charger : ");
-			String command = processor.getInput().getLine();
+			String command = processor.getInput().getLine().toLowerCase().trim();
 			processor.addCommand(localCommands.get(command));
 			processor.getOutput().printLine("Commande OK");
 			

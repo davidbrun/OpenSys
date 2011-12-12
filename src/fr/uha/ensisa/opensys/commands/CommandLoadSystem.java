@@ -21,7 +21,7 @@ public class CommandLoadSystem implements ICommand {
 	public void execute(Processor processor) {
 		OpenSys sys = processor.getOpenSys();
 		processor.getOutput().printLine("Nom du System ?");
-		String name = processor.getInput().getLine().toLowerCase();
+		String name = processor.getInput().getLine().toLowerCase().trim();
 		fr.uha.ensisa.opensys.core.System s = sys.newSystem(name);
 		if(s == null)
 			processor.getOutput().printLine("System inconnu !");

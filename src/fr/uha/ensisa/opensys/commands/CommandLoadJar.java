@@ -22,7 +22,7 @@ public class CommandLoadJar implements ICommand {
 	@Override
 	public void execute(Processor processor) {
 		processor.getOutput().printLine("Chemin du jar : ");
-		String line = processor.getInput().getLine();
+		String line = processor.getInput().getLine().toLowerCase().trim();
 		List<ICommand> commands = CommandFactory.getCommandsFromJarFile(line);
 		for (ICommand c : commands)
 		{
