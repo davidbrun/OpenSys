@@ -34,7 +34,8 @@ public abstract class Processor extends Element<Processor> {
 	}
 
 	public void addSystem(System system) {
-		this.mapSystems.put(system.getClass().getSimpleName(), system);
+		if (!this.mapSystems.containsKey(system.getClass().getSimpleName().toLowerCase()))
+			this.mapSystems.put(system.getClass().getSimpleName().toLowerCase(), system);
 	}
 	
 	public OpenSys getOpenSys() {
@@ -42,7 +43,8 @@ public abstract class Processor extends Element<Processor> {
 	}
 
 	public void addCommand(ICommand command) {
-		this.mapCommands.put(command.getName().toLowerCase(), command);
+		if (!this.mapCommands.containsKey(command.getName().toLowerCase()))
+			this.mapCommands.put(command.getName().toLowerCase(), command);
 	}
 	
 	public boolean removeCommand(String commandName) {
