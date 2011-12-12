@@ -11,8 +11,9 @@ import fr.uha.ensisa.opensys.sample.dictionary.core.Dictionary;
 
 @SuppressWarnings("rawtypes")
 public class OpenSys {	
-	private static final String PACKAGE_IO = "fr.uha.ensisa.opensys.IO";
-	private static final String PACKAGE_PROCESSORS = "fr.uha.ensisa.opensys.processors";
+	public static final String PACKAGE_IO = "fr.uha.ensisa.opensys.IO";
+	public static final String PACKAGE_PROCESSORS = "fr.uha.ensisa.opensys.processors";
+	public static final String PACKAGE_COMMANDS = "fr.uha.ensisa.opensys.commands";
 	
 	private static Map<String, Class<? extends Input>> inputs;
 	private static Map<String, Class<? extends Output>> outputs;
@@ -149,6 +150,8 @@ public class OpenSys {
 	}
 	
 	public void setProcessor(Processor processor) {
+		if (this.processor != null)
+			this.processor.stop();
 		this.processor = processor;
 		this.processor.run();
 	}

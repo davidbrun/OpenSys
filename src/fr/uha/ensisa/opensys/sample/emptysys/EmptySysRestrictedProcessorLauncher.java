@@ -9,6 +9,6 @@ public class EmptySysRestrictedProcessorLauncher {
 	{
 		OpenSys openSys = new OpenSys();
 		openSys.setProcessor(new RestrictedProcessor(openSys));
-		openSys.run();
+//		openSys.run();
 	}
 }

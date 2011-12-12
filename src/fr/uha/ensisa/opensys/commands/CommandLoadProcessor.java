@@ -28,8 +28,8 @@ public class CommandLoadProcessor implements ICommand {
 		else
 		{
 			sys.getProcessor().stop();
-			sys.setProcessor(s);
 			processor.getOutput().printLine("Processeur OK");
+			sys.setProcessor(s);
 		}
 	}
 }

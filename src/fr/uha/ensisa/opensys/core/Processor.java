@@ -44,6 +44,12 @@ public abstract class Processor extends Element<Processor> {
 	public void addCommand(ICommand command) {
 		this.mapCommands.put(command.getName().toLowerCase(), command);
 	}
+	
+	public boolean removeCommand(String commandName) {
+		boolean result = this.mapCommands.containsKey(commandName);
+		this.mapCommands.remove(commandName);
+		return result;
+	}
 
 	public Set<String> getCommands() {
 		Set<String> result = new TreeSet<String>();
@@ -72,7 +78,7 @@ public abstract class Processor extends Element<Processor> {
 			getOutput().printLine("Bye bye!");
 	}
 
-	public void stop() {
+	public synchronized void stop() {
 		this.mustStop = true;
 	}
 }
