@@ -19,7 +19,7 @@ public class CommandDicoSize implements ICommand {
 
 	@Override
 	public void execute(Processor processor) {
-		Dictionary dictionary = (Dictionary) processor.getSystem(getTarget().getSimpleName());
+		Dictionary dictionary = (Dictionary) processor.getSystem(getTarget().getSimpleName().toLowerCase());
 		if (dictionary != null)
 			processor.getOutput().printLine("Nombre d'entrees du dictionnaire : " + dictionary.getSize());
 		else

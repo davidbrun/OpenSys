@@ -19,7 +19,7 @@ public class CommandTranslate implements ICommand {
 	
 	@Override
 	public void execute(Processor processor) {
-		Dictionary dictionary = (Dictionary) processor.getSystem(getTarget().getSimpleName());
+		Dictionary dictionary = (Dictionary) processor.getSystem(getTarget().getSimpleName().toLowerCase());
 		if (dictionary != null)
 		{
 			processor.getOutput().printLine("Entrez le texte a traduire : ");
