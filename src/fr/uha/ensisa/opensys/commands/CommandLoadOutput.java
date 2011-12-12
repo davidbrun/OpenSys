@@ -24,8 +24,11 @@ public class CommandLoadOutput implements ICommand {
 		String name = processor.getInput().getLine().toLowerCase();
 		fr.uha.ensisa.opensys.core.Output s = sys.newOutput(name);
 		if(s == null)
-			processor.getOutput().printLine("Raté !");
+			processor.getOutput().printLine("Output non chargée !");
 		else
+		{
 			sys.setOutput(s);
+			processor.getOutput().printLine("Output OK");
+		}
 	}
 }

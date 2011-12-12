@@ -12,7 +12,7 @@ import fr.uha.ensisa.opensys.sample.dictionary.core.Dictionary;
 @SuppressWarnings("rawtypes")
 public class OpenSys {	
 	private static final String PACKAGE_IO = "fr.uha.ensisa.opensys.IO";
-	private static final String PACKAGE_PROCESSORS = "fr.uha.ensisa.opensys.IO";
+	private static final String PACKAGE_PROCESSORS = "fr.uha.ensisa.opensys.processors";
 	
 	private static Map<String, Class<? extends Input>> inputs;
 	private static Map<String, Class<? extends Output>> outputs;
@@ -137,7 +137,7 @@ public class OpenSys {
 		Processor processor = null;
 		Class<? extends Processor> c = processors.get(name);
 		try {
-			processor = c.newInstance();
+			processor = c.getConstructor(OpenSys.class).newInstance(this);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -165,10 +165,10 @@ public class OpenSys {
 		{
 			for (Class clazz : fr.uha.ensisa.opensys.util.PackageExplorer.getClasses(PACKAGE_IO))
 				try {
-					if (clazz.getName().contains("Input"))
-						addInput(clazz.getSimpleName(), clazz);
-					if (clazz.getName().contains("Output"))
-						addOutput(clazz.getSimpleName(), clazz);
+					if (clazz.getSuperclass().equals(Input.class))
+						addInput(clazz.getSimpleName().toLowerCase(), clazz);
+					if (clazz.getSuperclass().equals(Output.class))
+						addOutput(clazz.getSimpleName().toLowerCase(), clazz);	
 				}
 				catch (Exception e) { }
 		}
@@ -179,8 +179,9 @@ public class OpenSys {
 		try
 		{
 			for (Class clazz : fr.uha.ensisa.opensys.util.PackageExplorer.getClasses(PACKAGE_PROCESSORS))
-				try {	
-					addProcessor(clazz.getSimpleName(), clazz);
+				try {
+					if (clazz.getSuperclass().equals(Processor.class))
+						addProcessor(clazz.getSimpleName().toLowerCase(), clazz);
 				}
 				catch (Exception e) { }
 		}

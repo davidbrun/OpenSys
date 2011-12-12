@@ -26,6 +26,9 @@ public class CommandLoadInput implements ICommand {
 		if(s == null)
 			processor.getOutput().printLine("Input inconnu !");
 		else
+		{
 			sys.setInput(s);
+			processor.getOutput().printLine("Input OK");
+		}
 	}
 }

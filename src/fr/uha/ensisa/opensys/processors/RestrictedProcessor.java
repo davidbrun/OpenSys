@@ -11,7 +11,7 @@ import fr.uha.ensisa.opensys.core.Processor;
 public class RestrictedProcessor extends Processor {
 	
 	static {
-		OpenSys.addProcessor(DefaultProcessor.class.getSimpleName().toLowerCase(), DefaultProcessor.class);
+		OpenSys.addProcessor(RestrictedProcessor.class.getSimpleName().toLowerCase(), RestrictedProcessor.class);
 	}
 	
 	public RestrictedProcessor(OpenSys openSys) {

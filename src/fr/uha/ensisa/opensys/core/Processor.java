@@ -10,6 +10,7 @@ public abstract class Processor extends Element<Processor> {
 	private Map<String,fr.uha.ensisa.opensys.core.System> mapSystems;
 	protected Map<String, ICommand> mapCommands;
 	protected OpenSys openSys;
+	private boolean mustStop = false;
 	
 	public Processor(OpenSys openSys) {
 		this.openSys = openSys;
@@ -53,7 +54,8 @@ public abstract class Processor extends Element<Processor> {
 
 	public void run() {
 		String line = "";
-		while (line != null && !line.equals(EXIT_COMMAND))
+		mustStop = false;
+		while (line != null && !line.equals(EXIT_COMMAND) && !mustStop)
 		{
 			line = getInput().getLine();
 			if (line != null)
@@ -66,6 +68,11 @@ public abstract class Processor extends Element<Processor> {
 						getOutput().printLine("Unknown command: " + line);
 			}
 		}
-		getOutput().printLine("Bye bye!");
+		if (!mustStop)
+			getOutput().printLine("Bye bye!");
+	}
+
+	public void stop() {
+		this.mustStop = true;
 	}
 }

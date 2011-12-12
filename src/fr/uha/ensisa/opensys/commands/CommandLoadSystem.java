@@ -26,6 +26,9 @@ public class CommandLoadSystem implements ICommand {
 		if(s == null)
 			processor.getOutput().printLine("System inconnu !");
 		else
+		{
 			processor.addSystem(s);
+			processor.getOutput().printLine("System OK");
+		}
 	}
 }

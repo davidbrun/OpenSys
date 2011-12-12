@@ -24,8 +24,12 @@ public class CommandLoadProcessor implements ICommand {
 		String name = processor.getInput().getLine().toLowerCase();
 		fr.uha.ensisa.opensys.core.Processor s = sys.newProcessor(name);
 		if(s == null)
-			processor.getOutput().printLine("Raté !");
+			processor.getOutput().printLine("Processeur non chargé !");
 		else
+		{
+			sys.getProcessor().stop();
 			sys.setProcessor(s);
+			processor.getOutput().printLine("Processeur OK");
+		}
 	}
 }
