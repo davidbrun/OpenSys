@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import fr.uha.ensisa.opensys.IO.JLineInput;
 import fr.uha.ensisa.opensys.core.ICommand;
 import fr.uha.ensisa.opensys.core.OpenSys;
 import fr.uha.ensisa.opensys.core.Processor;
@@ -44,6 +45,8 @@ public class CommandLoadCommand implements ICommand {
 			processor.getOutput().printLine("Entrez le nom de la commande interne a charger : ");
 			String command = processor.getInput().getLine().toLowerCase().trim();
 			processor.addCommand(localCommands.get(command));
+			if (processor.getInput() instanceof JLineInput)
+				((JLineInput)processor.getInput()).setCommands(processor.getCommands());
 			processor.getOutput().printLine("Commande OK");
 			
 		} catch (Exception e) {
