@@ -167,7 +167,7 @@ public class OpenSys {
 		// IO
 		try
 		{
-			for (Class clazz : fr.uha.ensisa.opensys.util.PackageExplorer.getClasses(PACKAGE_IO))
+			for (Class clazz : fr.uha.ensisa.opensys.utils.PackageExplorer.getClasses(PACKAGE_IO))
 				try {
 					if (clazz.getSuperclass().equals(Input.class))
 						addInput(clazz.getSimpleName().toLowerCase(), clazz);
@@ -182,7 +182,7 @@ public class OpenSys {
 		// Processors
 		try
 		{
-			for (Class clazz : fr.uha.ensisa.opensys.util.PackageExplorer.getClasses(PACKAGE_PROCESSORS))
+			for (Class clazz : fr.uha.ensisa.opensys.utils.PackageExplorer.getClasses(PACKAGE_PROCESSORS))
 				try {
 					if (clazz.getSuperclass().equals(Processor.class))
 						addProcessor(clazz.getSimpleName().toLowerCase(), clazz);

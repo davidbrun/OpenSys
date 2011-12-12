@@ -1,4 +1,4 @@
-package fr.uha.ensisa.opensys.util;
+package fr.uha.ensisa.opensys.utils;
 
 import java.io.File;
 import java.io.FilenameFilter;

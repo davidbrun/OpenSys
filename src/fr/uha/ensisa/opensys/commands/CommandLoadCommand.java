@@ -8,7 +8,7 @@ import fr.uha.ensisa.opensys.core.ICommand;
 import fr.uha.ensisa.opensys.core.OpenSys;
 import fr.uha.ensisa.opensys.core.Processor;
 import fr.uha.ensisa.opensys.core.System;
-import fr.uha.ensisa.opensys.util.PackageExplorer;
+import fr.uha.ensisa.opensys.utils.PackageExplorer;
 
 public class CommandLoadCommand implements ICommand {
 	
