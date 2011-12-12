@@ -5,11 +5,11 @@ import fr.uha.ensisa.opensys.core.Processor;
 import fr.uha.ensisa.opensys.core.System;
 import fr.uha.ensisa.opensys.sample.dictionary.core.Dictionary;
 
-public class CommandPrint implements ICommand {
+public class CommandDicoPrint implements ICommand {
 
 	@Override
 	public String getName() {
-		return "Print";
+		return "DicoPrint";
 	}
 	
 	@Override

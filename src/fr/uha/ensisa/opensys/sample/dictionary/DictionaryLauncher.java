@@ -16,7 +16,7 @@ public class DictionaryLauncher {
 		openSys.getProcessor().addCommand(new CommandTranslate());
 		openSys.getProcessor().addCommand(new CommandInsert());
 		openSys.getProcessor().addCommand(new CommandRemove());
-		openSys.getProcessor().addCommand(new CommandPrint());
+		openSys.getProcessor().addCommand(new CommandDicoPrint());
 		openSys.getProcessor().addCommand(new CommandDicoSize());
 		
 		openSys.setInput(jlineInput);

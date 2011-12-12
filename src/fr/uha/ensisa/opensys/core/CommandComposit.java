@@ -1,10 +1,7 @@
-package fr.uha.ensisa.opensys.commands;
+package fr.uha.ensisa.opensys.core;
 
 import java.util.ArrayList;
 import java.util.List;
-import fr.uha.ensisa.opensys.core.ICommand;
-import fr.uha.ensisa.opensys.core.Processor;
-import fr.uha.ensisa.opensys.core.System;
 
 public abstract class CommandComposit implements ICommand {
 	
@@ -32,8 +29,17 @@ public abstract class CommandComposit implements ICommand {
 		this.listCommands.add(command);
 	}
 	
-	public void removeCommand(ICommand command) {
-		this.listCommands.remove(command);
+	public void removeCommand(String command) {
+		for (int i = listCommands.size() - 1; i >= 0; i--)
+			if (listCommands.get(i).getName().toLowerCase().equals(command.toLowerCase()))
+			{
+				listCommands.remove(listCommands.get(i));
+				break;
+			}
+	}
+	
+	public void removeAllCommands() {
+		this.listCommands.clear();
 	}
 	
 	public List<ICommand> getCommands() {
