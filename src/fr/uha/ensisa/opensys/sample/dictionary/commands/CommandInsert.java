@@ -28,6 +28,8 @@ public class CommandInsert implements ICommand {
 			String word2 = processor.getInput().getLine();
 			dictionary.insert(word1, word2);
 			processor.getOutput().printLine("Ajout OK");
-		}	
+		}
+		else
+			processor.getOutput().printLine("Dictionary systeme null !");
 	}
 }

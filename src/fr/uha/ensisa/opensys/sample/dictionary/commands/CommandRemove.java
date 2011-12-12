@@ -31,6 +31,8 @@ public class CommandRemove implements ICommand {
 			}
 			else
 				processor.getOutput().printLine("Le mot " + word + " n'est pas dans le dictionnaire.");
-		}	
+		}
+		else
+			processor.getOutput().printLine("Dictionary systeme null !");
 	}
 }

@@ -21,8 +21,8 @@ public class CommandDicoSize implements ICommand {
 	public void execute(Processor processor) {
 		Dictionary dictionary = (Dictionary) processor.getSystem(getTarget().getSimpleName());
 		if (dictionary != null)
-		{
 			processor.getOutput().printLine("Nombre d'entrees du dictionnaire : " + dictionary.getSize());
-		}	
+		else
+			processor.getOutput().printLine("Dictionary systeme null !");
 	}
 }
