@@ -35,7 +35,7 @@ public class CommandLoadJar implements ICommand {
 				}
 		}
 		
-		if (processor.getInput().getClass().equals(JLineInput.class))
+		if (processor.getInput() instanceof JLineInput)
 			((JLineInput)processor.getInput()).setCommands(processor.getCommands());
 	}
 }

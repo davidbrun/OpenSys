@@ -3,6 +3,7 @@ package fr.uha.ensisa.opensys.IO;
 import java.io.IOException;
 import java.util.Set;
 
+import jline.Completor;
 import jline.ConsoleReader;
 import jline.SimpleCompletor;
 import fr.uha.ensisa.opensys.core.Input;
@@ -47,7 +48,13 @@ public class JLineInput extends Input {
 		return readChar;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void setCommands(Set<String> commands) {
+		Completor[] listCompletor;
+		listCompletor = (Completor[]) this.in.getCompletors().toArray(new Completor[0]);
+		for (int i = 0; i < listCompletor.length; i++)
+			if (this.in.removeCompletor(listCompletor[i]))
+				i--;
 		in.addCompletor(new SimpleCompletor(commands.toArray(EMPTY_STRING_ARRAY)));
 	}
 }

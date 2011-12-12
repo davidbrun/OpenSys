@@ -21,7 +21,7 @@ public class CommandLoadProcessor implements ICommand {
 	public void execute(Processor processor) {
 		OpenSys sys = processor.getOpenSys();
 		processor.getOutput().printLine("Nom du processor ?");
-		String name = processor.getInput().getLine();
+		String name = processor.getInput().getLine().toLowerCase();
 		fr.uha.ensisa.opensys.core.Processor s = sys.newProcessor(name);
 		if(s == null)
 			processor.getOutput().printLine("Raté !");
