@@ -20,17 +20,20 @@ public class FileOutput extends Output {
 	}
 	
 	public void finalize() {
+		out.flush();
 		out.close();
 	}
 	
 	@Override
 	public void printChar(char c) {
 		out.print(c);
+		out.flush();
 	}
 
 	@Override
 	public void printLine(String s) {
 		out.println(s);
+		out.flush();
 	}
 
 }

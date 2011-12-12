@@ -53,14 +53,18 @@ public abstract class Processor extends Element<Processor> {
 
 	public void run() {
 		String line = "";
-		while (!line.equals(EXIT_COMMAND))
+		while (line != null && !line.equals(EXIT_COMMAND))
 		{
-			line = getInput().getLine().toLowerCase().trim();
-			if (this.mapCommands.containsKey(line))
-				this.mapCommands.get(line).execute(this);
-			else
-				if (!line.equals(EXIT_COMMAND))
-					getOutput().printLine("Unknown command: " + line);
+			line = getInput().getLine();
+			if (line != null)
+			{
+				line = line.toLowerCase().trim();
+				if (this.mapCommands.containsKey(line))
+					this.mapCommands.get(line).execute(this);
+				else
+					if (!line.equals(EXIT_COMMAND))
+						getOutput().printLine("Unknown command: " + line);
+			}
 		}
 		getOutput().printLine("Bye bye!");
 	}

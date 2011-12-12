@@ -88,7 +88,15 @@ public class OpenSys {
 		Input input = null;
 		Class<? extends Input> c = inputs.get(name);
 		try {
-			input = c.newInstance();
+			Object parameter = null;
+			if (c.getDeclaredConstructors()[0].getParameterTypes().length != 0)
+			{
+				getOutput().printLine("Entrez le nom du fichier : ");
+				parameter = getInput().getLine().toLowerCase();
+				input = c.getConstructor(parameter.getClass()).newInstance(parameter.toString());
+			}
+			else
+				input = c.newInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -99,7 +107,15 @@ public class OpenSys {
 		Output output = null;
 		Class<? extends Output> c = outputs.get(name);
 		try {
-			output = c.newInstance();
+			Object parameter = null;
+			if (c.getDeclaredConstructors()[0].getParameterTypes().length != 0)
+			{
+				getOutput().printLine("Entrez le nom du fichier : ");
+				parameter = getInput().getLine().toLowerCase();
+				output = c.getConstructor(parameter.getClass()).newInstance(parameter.toString());
+			}
+			else
+				output = c.newInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
